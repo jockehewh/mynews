@@ -1,0 +1,9 @@
+.slide{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+}
