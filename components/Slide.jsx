@@ -2,16 +2,15 @@ import React from 'react'
 import style from '@/styles/Slide.module.css'
 import { useSelector } from 'react-redux';
 
-export default function Slide() {
-  const articles = useSelector(state=> state.news.value.trendingArticles)
+export default function Slide(props) {
   return (
-    <a className={style.slide}>
-      <img src={articles[0].urlToImage} alt={articles[0].title} />
+    <a className={style.slide} href={props.article.url} target="_blank">
+      <img src={props.article.urlToImage} alt={props.article.title} />
       <div className={style.details}>
-        <p>{"redux TECH"} - <span>{articles[0].publishedAt}</span></p>
-        <h1>{articles[0].title}</h1>
-        <p>{articles[0].content}</p>
-        <p>{articles[0].author}</p>
+        <p>Published the <span>{new Intl.DateTimeFormat("us-US", {dateStyle: "medium"}).format(new Date(props.article.publishedAt))}</span></p>
+        <h1>{props.article.title}</h1>
+        <p>{props.article.content.split("[+")[0]}</p>
+        <p>Author: {props.article.author}</p>
       </div>
     </a>
   )

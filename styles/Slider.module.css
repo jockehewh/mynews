@@ -3,7 +3,12 @@
   display: flex;
   flex-direction: row;
   margin: auto;
+  align-items: center;
 }
 .trending{
   text-align: center;
+}
+.mySwiper{
+  width: 90vw;
+  margin: auto;
 }

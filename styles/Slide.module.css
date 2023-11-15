@@ -1,6 +1,10 @@
 .slide{
   display: grid;
   grid-template-columns: 1fr 2fr;
+  text-decoration: none;
+  color: black;
+  gap: 30px;
+  text-align: start;
 }
 
 .details{
