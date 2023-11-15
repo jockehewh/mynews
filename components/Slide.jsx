@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '@styles/Slide.module.css'
+import style from '@/styles/Slide.module.css'
 
 export default function Slide() {
   return (

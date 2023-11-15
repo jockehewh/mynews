@@ -8,20 +8,16 @@ export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    getArticles: (state, action) => {
-      fetch("https://newsapi.org/v2/everything?q=tech&apiKey=57e20f764388443d9513de7fb3d03539")
-      .then(res=> res.json())
-      .then(data => data.articles)
-      .then(articles=>{
-        state.value.trendingArticles.push(articles.shift())
-        state.value.trendingArticles.push(articles.shift())
-        state.value.trendingArticles.push(articles.shift())
-        state.value.trendingArticles.push(articles.shift())
-        state.value.mainArticles = [...articles]
-      })
-    }
+    setTrendingArticles: (state, action) => {
+      console.log("trendiing",action.payload)
+      state.value.trendingArticles
+    },
+    setMainArticles: (state, action) => {
+      console.log("main", action.payload)
+      state.value.mainArticles
+    },
   }
 })
 
-export const { getArticles, hydrateMainAndTrending } = newsSlice.actions
+export const { setTrendingArticles, setMainArticles } = newsSlice.actions
 export default newsSlice.reducer
