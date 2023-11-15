@@ -1,0 +1,8 @@
+.slider{
+  width: 90vw;
+  display: flex;
+  margin: auto;
+}
+.trending{
+  text-align: center;
+}

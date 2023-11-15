@@ -2,6 +2,8 @@ import Slider from '@/components/Slider';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTrendingArticles, setMainArticles } from '@/reducers/news';
 import { useEffect, useState } from 'react';
+import Article  from "../components/Article"
+import Navbar  from "../components/Navbar"
 export default function Home() {
   const [trendings, setTrendings] = useState([])
   const dispatch = useDispatch()
@@ -23,6 +25,9 @@ export default function Home() {
   }, [])
   return (
     <>
+    <Navbar/>
+    <Slider/>
+    <Article/>
     </>
   )
 }
