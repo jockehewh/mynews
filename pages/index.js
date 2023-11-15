@@ -7,7 +7,6 @@ import Navbar  from "../components/Navbar"
 export default function Home() {
   const [trendings, setTrendings] = useState([])
   const dispatch = useDispatch()
-  const obj = useSelector(state => state.news.value.trendingArticles)
   useEffect(()=>{
     fetch("https://newsapi.org/v2/everything?q=tech&apiKey=57e20f764388443d9513de7fb3d03539")
       .then(res => res.json())
