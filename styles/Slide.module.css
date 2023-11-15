@@ -11,3 +11,10 @@
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 500px) {
+  .slide {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+}
