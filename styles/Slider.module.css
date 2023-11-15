@@ -1,6 +1,7 @@
 .slider{
   width: 90vw;
   display: flex;
+  flex-direction: row;
   margin: auto;
 }
 .trending{
