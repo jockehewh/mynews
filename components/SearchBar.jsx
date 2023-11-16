@@ -20,8 +20,8 @@ export default function SearchBar() {
   }
   return (
     <div>
-      <input list="search" type="text" className={styles.mysearch} onChange={searchArticles}/>
-      <datalist id="search">
+      <input list="search" type="text" className={styles.mysearch} placeholder='Search...' onChange={searchArticles}/>
+      <datalist id="search" role="listbox">
         {found.map((art, i)=>{
           return <a href={art.url} target='_blank'><option value={art.title}>{art.title}</option></a> 
         })}

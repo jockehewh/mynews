@@ -17,6 +17,7 @@
 .mysearch {
     border-radius: 25px;
     padding-left: 5px;
+    width: 300px;
 }
 
 .favorite_icon a {
