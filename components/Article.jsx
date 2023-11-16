@@ -1,31 +1,47 @@
 import React from "react";
 import styles from "@/styles/Article.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setFavorites } from "../reducers/news";
+import Link from "next/link";
 
-const article = () => {
+const Article = (props) => {
+  console.log("===========", props);
   const dateStyle = { color: "grey", fontSize: "small" };
-  const imgStyle = { borderRadius: "10px" };
+  const imgStyle = { width: "100%", height: "100%", borderRadius: "10px" };
+  const bookmarkStyle = { width: "15px", height: "15px" };
+  const buttonStyle = { width: "100%" };
+  const dispatch = useDispatch();
 
   return (
     <>
       <div className={styles.ArticleContainer}>
-        <div style={imgStyle}>
-          <img src="/blank.png" alt="Illustration" />
+        <div className={styles.imgStyle}>
+          <Link href={props.article.url} target="_blank">
+            <img
+              src={props.article.urlToImage}
+              alt="Illustration"
+              style={imgStyle}
+            />
+          </Link>
         </div>
-        <div>
+        <div className={styles.Info}>
           <p>
-            Subject <span style={dateStyle}>Date</span>
+            Published by : {props.article.author}
+            <span style={dateStyle}> Date : {props.article.publishedAt}</span>
           </p>
+
+          <h2>{props.article.title}</h2>
         </div>
-        <h2>Title</h2>
-        <h4>Hook Sentence</h4>
-        <p className={styles.Article}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt
-        </p>
-        <h3>Author</h3>
+        <p className={styles.Article}>{props.article.description}</p>
+        <button
+          style={buttonStyle}
+          // onClick={dispatch(setFavorites(props.article))}
+        >
+          <img src="/bookmark.png" style={bookmarkStyle} />
+        </button>
       </div>
     </>
   );
 };
 
-export default article;
+export default Article;
