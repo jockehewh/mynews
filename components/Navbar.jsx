@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaHeart } from 'react-icons/fa';
 import styles from '../styles/Navbar.module.css';
-import Search from '../components/Search';
+import SearchBar from '../components/SearchBar';
 
 const Navbar = () => {
     return (
@@ -14,7 +14,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div>
-                    <Search />
+                    <SearchBar />
                 </div>
                 <div className={styles.favorite_icon}>
                     <Link href="#">
