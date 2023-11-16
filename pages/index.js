@@ -4,6 +4,7 @@ import { setTrendingArticles, setMainArticles } from '@/reducers/news';
 import { useEffect, useState } from 'react';
 import Article  from "../components/Article"
 import Navbar  from "../components/Navbar"
+import Favorites from '@/components/Favorites';
 export default function Home() {
   const [trendings, setTrendings] = useState([])
   const dispatch = useDispatch()
@@ -27,6 +28,7 @@ export default function Home() {
     <Navbar/>
     <Slider/>
     <Article/>
+    <Favorites/>
     </>
   )
 }

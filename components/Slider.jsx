@@ -16,8 +16,8 @@ export default function Slider(props) {
         dynamicHeight={false}
         className={styles.mySwiper}
       >
-        {trending.map(art => {
-          return <Slide article={art} />
+        {trending.map((art, i) => {
+          return <Slide key={i} article={art} />
         })}
       </Carousel>
       

@@ -36,7 +36,7 @@ export const newsSlice = createSlice({
   initialState,
   reducers: {
     setTrendingArticles: (state, action) => {
-      console.log("trendiing",action.payload)
+      console.log("trending",action.payload)
       state.value.trendingArticles = action.payload
     },
     setMainArticles: (state, action) => {
@@ -47,8 +47,16 @@ export const newsSlice = createSlice({
       console.log("main", action.payload)
       state.value.favorites.push(action.payload)
     },
+    getFavorites: (state, action) => {
+      
+      return state.value.favorites
+    },
   }
 })
 
-export const { setTrendingArticles, setMainArticles, setFavorites } = newsSlice.actions
+export const {
+  setTrendingArticles,
+  setMainArticles,
+  setFavorites,
+  getFavorites } = newsSlice.actions
 export default newsSlice.reducer
