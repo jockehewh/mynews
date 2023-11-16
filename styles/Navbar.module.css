@@ -10,20 +10,15 @@
     margin-left: auto;
 }
 
-.logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo img {
+    width: 7vw;
 }
 
 .search input {
     padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
+    border-radius: 25px;
 }
 
-.social_icons a,
 .favorite_icon a {
     color: black;
     text-decoration: none;
@@ -31,7 +26,6 @@
     font-size: 1.2rem;
 }
 
-.social_icons a:hover,
 .favorite_icon a:hover {
     color: red;
 }
