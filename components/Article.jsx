@@ -27,7 +27,7 @@ const Article = (props) => {
         <div className={styles.Info}>
           <p>
             Published by : {props.article.author}
-            <span style={dateStyle}> Date : {props.article.publishedAt}</span>
+            <span style={dateStyle}> Date : {new Intl.DateTimeFormat("us-US", { dateStyle: "medium" }).format(new Date(props.article.publishedAt))}</span>
           </p>
 
           <h2>{props.article.title}</h2>
