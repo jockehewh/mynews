@@ -14,18 +14,23 @@ export default function SearchBar() {
         found.push(article)
       }
     })
+    if(found.length > 5)
     found.length = 5
     console.log(found)
     setFound(found)
   }
   return (
     <div>
-      <input list="search" type="text" className={styles.mysearch} placeholder='Search...' onChange={searchArticles}/>
+      <input list="search" type="text" className={styles.mysearch} placeholder='Search...' onChange={searchArticles} />
       <datalist id="search" role="listbox">
-        {found.map((art, i)=>{
-          return <a href={art.url} target='_blank'><option value={art.title}>{art.title}</option></a> 
+        {found.map((art, i) => {
+          return <a href={art.url} key={i} target='_blank' onClick={()=>{console.log("click")}}><option value={art.title}>{art.title}</option></a>
         })}
       </datalist>
     </div>
   )
 }
+
+/* 
+https://newsapi.org/v2/everything?q=tech&searchIn=title&pageSize=10&sortBy=popularity&apiKey=57e20f764388443d9513de7fb3d03539
+*/
