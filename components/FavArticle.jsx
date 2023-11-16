@@ -1,10 +1,17 @@
 import React from "react";
 import styles from "@/styles/Article.module.css";
+import { deleteFavorites } from "@/reducers/news";
+import { useDispatch } from "react-redux";
 
 const FavArticle = (props) => {
+  const dispatch = useDispatch()
   const dateStyle = { color: "grey", fontSize: "small" };
   const imgStyle = { borderRadius: "10px" };
 
+function deleteFav(){
+  //CREER LE BOUTON EN SUIVANT LE MODEL DE ADAM
+  dispatch(deleteFavorites(props.favoris.title))
+}
   return (
     <>
       <div className={styles.ArticleContainer}>

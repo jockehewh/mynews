@@ -47,9 +47,12 @@ export const newsSlice = createSlice({
       console.log("main", action.payload)
       state.value.favorites.push(action.payload)
     },
-    getFavorites: (state, action) => {
-      
-      return state.value.favorites
+    deleteFavorites: (state, action) => {
+      state.value.favorites = state.value.favorites.filter(fav=>{
+        if(action.payload !== fav.title){
+          return fav
+        }
+      })
     },
   }
 })
@@ -58,5 +61,5 @@ export const {
   setTrendingArticles,
   setMainArticles,
   setFavorites,
-  getFavorites } = newsSlice.actions
+  deleteFavorites } = newsSlice.actions
 export default newsSlice.reducer
