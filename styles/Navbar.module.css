@@ -14,9 +14,9 @@
     width: 7vw;
 }
 
-.search input {
-    padding: 0.5rem;
+.mysearch {
     border-radius: 25px;
+    padding-left: 5px;
 }
 
 .favorite_icon a {

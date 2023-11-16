@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux' 
+import styles from "@/styles/Navbar.module.css"
 
 export default function SearchBar() {
   const articles = useSelector(state => state.news.value.mainArticles)
@@ -19,10 +20,10 @@ export default function SearchBar() {
   }
   return (
     <div>
-      <input list="search" type="text" onChange={searchArticles}/>
+      <input list="search" type="text" className={styles.mysearch} onChange={searchArticles}/>
       <datalist id="search">
         {found.map((art, i)=>{
-          return <option value={art.title}>{art.title}</option>
+          return <a href={art.url} target='_blank'><option value={art.title}>{art.title}</option></a> 
         })}
       </datalist>
     </div>
