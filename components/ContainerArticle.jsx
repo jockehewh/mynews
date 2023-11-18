@@ -7,7 +7,6 @@ export default function ContainerArticle() {
   const containerStyle = { display: "flex", flexWrap: "wrap" };
 
   const data = useSelector((state) => state.news.value.mainArticles);
-  console.log(data);
 
   let [allArticles, setallArticles] = useState([]);
   let [displayArticles, setdisplayArticles] = useState([]);

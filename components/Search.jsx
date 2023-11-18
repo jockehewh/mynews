@@ -7,15 +7,14 @@ const Search = () => {
     const [found, setFound] = useState([])
     function searchArticles(e) {
         let search = e.currentTarget.value
-        console.log(search, articles)
         let found = []
         articles.forEach(article => {
             if (article.title.includes(search)) {
                 found.push(article)
             }
         })
+        if(found.length > 5)
         found.length = 5
-        console.log(found)
         setFound(found)
     }
     return (

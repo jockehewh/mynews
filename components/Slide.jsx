@@ -1,7 +1,5 @@
 import React from 'react'
 import style from '@/styles/Slide.module.css'
-import { useSelector } from 'react-redux';
-
 export default function Slide(props) {
   return (
     <a className={style.slide} href={props.article.url} target="_blank">

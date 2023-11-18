@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+/* 
 
-const initialState = {
-  value: { mainArticles: [], trendingArticles: [], favorites: [
     {
       "source": {
         "id": "wired",
@@ -28,7 +27,10 @@ const initialState = {
       "publishedAt": "2023-10-28T13:00:00Z",
       "content": "As the Israel-Hamas war raged on this week and Israel expanded its ground invasion of the Gaza Strip, the territory's compromised internet infrastructure and access to connectivity went fully dark on… [+5479 chars]"
     },
-  ] }
+  
+*/
+const initialState = {
+  value: { mainArticles: [], trendingArticles: [], favorites: [], favoritesTitles: [] }
 }
 
 export const newsSlice = createSlice({
@@ -36,20 +38,26 @@ export const newsSlice = createSlice({
   initialState,
   reducers: {
     setTrendingArticles: (state, action) => {
-      console.log("trending",action.payload)
       state.value.trendingArticles = action.payload
     },
     setMainArticles: (state, action) => {
-      console.log("main", action.payload)
       state.value.mainArticles = action.payload
     },
     setFavorites: (state, action) => {
-      console.log("main", action.payload)
-      state.value.favorites.push(action.payload)
+      if(state.value.favoritesTitles.includes(action.payload.title)){
+        return
+      }
+      state.value.favoritesTitles = [...state.value.favoritesTitles, action.payload.title]
+      state.value.favorites = [...state.value.favorites,action.payload]
     },
     deleteFavorites: (state, action) => {
       state.value.favorites = state.value.favorites.filter(fav=>{
         if(action.payload !== fav.title){
+          return fav
+        }
+      })
+      state.value.favoritesTitles = state.value.favoritesTitles.filter(fav => {
+        if (action.payload !== fav) {
           return fav
         }
       })

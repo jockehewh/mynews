@@ -17,8 +17,8 @@ const Navbar = () => {
                     <SearchBar />
                 </div>
                 <div className={styles.favorite_icon}>
-                    <Link href="#">
-                        <FaHeart />
+                    <Link href="/favorites">
+                        Favorites <FaHeart />
                     </Link>
                 </div>
             </nav>

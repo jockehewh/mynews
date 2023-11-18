@@ -7,7 +7,6 @@ export default function SearchBar() {
   const [found, setFound] = useState([])
   function searchArticles(e){
     let search = e.currentTarget.value
-    console.log(search, articles)
     let found = []
     articles.forEach(article =>{
       if(article.title.includes(search)){
@@ -16,15 +15,20 @@ export default function SearchBar() {
     })
     if(found.length > 5)
     found.length = 5
-    console.log(found)
     setFound(found)
   }
+  function navigate(url) {
+     window.open(url, "_blank")
+     }
+
   return (
     <div>
       <input list="search" type="text" className={styles.mysearch} placeholder='Search...' onChange={searchArticles} />
       <datalist id="search" role="listbox">
         {found.map((art, i) => {
-          return <a href={art.url} key={i} target='_blank' onClick={()=>{console.log("click")}}><option value={art.title}>{art.title}</option></a>
+          return <a href={art.url} target="_blank" key={i} onClick={() => { window.open(art.url, "_blank") }}>
+            <option value={art.title}>{art.title}</option>
+          </a> 
         })}
       </datalist>
     </div>
