@@ -30,3 +30,7 @@
 .favorite_icon a:hover {
     color: red;
 }
+
+@media screen and (max-width: 400px) {
+    .mysearch{width: unset}
+}
